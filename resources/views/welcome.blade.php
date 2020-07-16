@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Twitter Bootstrap shopping cart</title>
+    <title>Fashion shopping cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -39,7 +39,6 @@
 				</div>
 				<a href="index.html"> <span class="icon-home"></span> Home</a> 
 				<a href="#"><span class="icon-user"></span> My Account</a> 
-				<a href="register.html"><span class="icon-edit"></span> Free Register </a> 
 				<a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
 				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
 			</div>
@@ -62,19 +61,13 @@ Lower Header Section
 	</h1>
 	</div>
 	<div class="span4">
-	<div class="offerNoteWrapper">
-	<h1 class="dotmark">
-	<i class="icon-cut"></i>
-	Twitter Bootstrap shopping cart HTML template is available @ $14
-	</h1>
-	</div>
+	
 	</div>
 	<div class="span4 alignR">
-	<p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
+	<br/><br/>
 	<span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
 	<span class="btn btn-warning btn-mini">$</span>
-	<span class="btn btn-mini">&pound;</span>
-	<span class="btn btn-mini">&euro;</span>
+	
 	</div>
 </div>
 </header>
@@ -92,14 +85,13 @@ Navigation Bar Section
 		  </a>
 		  <div class="nav-collapse">
 			<ul class="nav">
-			  <li class=""><a href="index.html">Home	</a></li>
-			  <li class=""><a href="list-view.html">List View</a></li>
-			  <li class="active"><a href="grid-view.html">Grid View</a></li>
-			  <li class=""><a href="three-col.html">Three Column</a></li>
-			  <li class=""><a href="four-col.html">Four Column</a></li>
-			  <li class=""><a href="general.html">General Content</a></li>
+			  <li class="active"><a href="">Home</a></li>
+			  <li class=""><a href="">Categories</a></li>
+			  <li class=""><a href="">Link1</a></li>
+			  <li class=""><a href="">Link2</a></li>
+			  
 			</ul>
-			<form action="#" class="navbar-search pull-left">
+			<form action="#" class="navbar-search ml-auto mr-0 mr-md-3 my-2 my-md-0">
 			  <input type="text" placeholder="Search" class="search-query span2">
 			</form>
 			<ul class="nav pull-right">
