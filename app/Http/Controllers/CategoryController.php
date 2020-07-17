@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\c;
 use Illuminate\Http\Request;
+use Redirect;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.managecat');
+        $categories = DB::table('categories')->get();
+        return view('admin.managecat',compact('categories'));
     }
 
     /**
@@ -35,16 +37,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = array();
+        $data['name'] = $request->cat_name;
+        $data['description'] = $request->cat_desc;
+        $data['status'] = $request->status;
+
+        DB::table('categories')->insert($data);
+        // i will need a mesage to confirm this
+        return Redirect::to('/managecat');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\c  $c
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(c $c)
+    public function show($id)
     {
         //
     }
@@ -52,34 +61,43 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\c  $c
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(c $c)
+    public function edit($id)
     {
-        //
+        $cats = DB::table('categories')->where('id',$id)->first();
+        return view('admin.editcat', compact('cats'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\c  $c
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, c $c)
+    public function update(Request $request, $id)
     {
-        //
+        $data = array();
+        $data['name'] = $request->cat_name;
+        $data['description'] = $request->cat_desc;
+        $data['status'] = $request->status;
+
+        DB::table('categories')->where('id',$id)->update($data);
+        // i will need a mesage to confirm this
+        return Redirect::to('/managecat');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\c  $c
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(c $c)
+    public function destroy($id)
     {
-        //
+        DB::table('categories')->delete($id);
+        return Redirect::to('/managecat');
     }
 }

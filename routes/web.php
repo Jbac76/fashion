@@ -26,3 +26,7 @@ Route::get('/admin-home', 'Admin\HomeController@index')->name('admin');
 
 Route::get('/addcat', 'CategoryController@create')->name('addcat');
 Route::get('/managecat', 'CategoryController@index')->name('managecat');
+Route::post('/savecat','CategoryController@store')->name('savecat');
+Route::post('/updatecat/{catid}','CategoryController@update')->name('updatecat');
+Route::get('/cat/del/{catid}','CategoryController@destroy')->name('deletecat');
+Route::get('/cat/edit/{catid}','CategoryController@edit')->name('editcat');
