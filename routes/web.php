@@ -21,4 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// backend routes
 Route::get('/admin-home', 'Admin\HomeController@index')->name('admin');
+
+Route::get('/addcat', 'CategoryController@create')->name('addcat');
+Route::get('/managecat', 'CategoryController@index')->name('managecat');

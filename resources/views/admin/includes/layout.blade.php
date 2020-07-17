@@ -43,22 +43,37 @@
                 <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <a class="nav-link" href="index.php"
+                            <a class="nav-link" href="{{ URL::to('/admin-home') }}"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard</a
                             >
-                            
+                            <!-- ****************************** -->
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutss" aria-expanded="false" aria-controls="collapseLayouts"
+                                >
+
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Categories
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            >
+                            </a>
+                            <div class="collapse" id="collapseLayoutss" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{URL::to('/addcat')}}">Add Category</a>
+                                    <a class="nav-link" href="{{URL::to('/managecat')}}">Manage Category</a></nav>
+                            </div>
+
+                            <!-- *********************** -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
                                 >
 
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Product
+                                Products
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             >
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">Add Product</a>
+                                    <a class="nav-link" href="{{URL::to('/add')}}">Add Product</a>
                                     <a class="nav-link" href="">Manage Product</a></nav>
                             </div>
                             <!-- *********************************** -->
