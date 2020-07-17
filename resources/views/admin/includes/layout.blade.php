@@ -89,8 +89,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">Add User</a>
-                                    <a class="nav-link" href="">Manage Manage</a></nav>
+                                    <a class="nav-link" href="{{URL::to('/adduser')}}">Add User</a>
+                                    <a class="nav-link" href="{{URL::to('/manageuser')}}">Manage Manage</a></nav>
                             </div>
 
                             
