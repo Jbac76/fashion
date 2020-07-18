@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Fashion - Admin</title>
-        <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('_admin/css/styles.css') }}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -40,41 +40,50 @@
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
+                    <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <a class="nav-link" href="{{ URL::to('/admin-home') }}"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard</a
-                            >
-                            <!-- ****************************** -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutss" aria-expanded="false" aria-controls="collapseLayouts"
-                                >
-
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Categories
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            >
+                            <a class="nav-link" href="{{ URL::to('/admin-home') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
                             </a>
+
+                            <!-- ****************************** -->
+                            <a class="nav-link collapsed" 
+                                href="#" 
+                                data-toggle="collapse" 
+                                data-target="#collapseLayoutss" 
+                                aria-expanded="false" 
+                                aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Categories
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            
                             <div class="collapse" id="collapseLayoutss" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{URL::to('/addcat')}}">Add Category</a>
-                                    <a class="nav-link" href="{{URL::to('/managecat')}}">Manage Category</a></nav>
+                                    <a class="nav-link" href="{{ route('addcat')}}">Add Category</a>
+                                    <a class="nav-link" href="{{ route('managecat')}}">Manage Category</a>
+                                </nav>
                             </div>
 
                             <!-- *********************** -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                                >
-
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            <a class="nav-link collapsed" 
+                                href="#" 
+                                data-toggle="collapse" 
+                                data-target="#collapseLayouts" 
+                                aria-expanded="false" 
+                                aria-controls="collapseLayouts">
+                                
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Products
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                            >
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{URL::to('/add')}}">Add Product</a>
-                                    <a class="nav-link" href="">Manage Product</a></nav>
+                                    <a class="nav-link" href="{{ route('addproduct') }}">Add Product</a>
+                                    <a class="nav-link" href="{{ route('manageproduct') }}">Manage Product</a>
+                                </nav>
                             </div>
                             <!-- *********************************** -->
 
@@ -124,12 +133,12 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('admin/js/scripts.js') }}"></script>
+        <script src="{{ asset('_admin/js/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('admin/assets/demo/chart-area-demo.js') }}"></script>
-        <script src="{{ asset('admin/assets/demo/chart-bar-demo.js') }}"></script>
+        <script src="{{ asset('_admin/assets/demo/chart-area-demo.js') }}"></script>
+        <script src="{{ asset('_admin/assets/demo/chart-bar-demo.js') }}"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('admin/assets/demo/datatables-demo.js') }}"></script>
+        <script src="{{ asset('_admin/assets/demo/datatables-demo.js') }}"></script>
     </body>
 </html>

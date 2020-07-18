@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Redirect;
-use DB;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::table('categories')->get();
-        return view('admin.managecat',compact('categories'));
+        $categories = Category::all();
+        return view('admin.managecat', compact('categories'));
     }
 
     /**
@@ -37,14 +37,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = array();
-        $data['name'] = $request->cat_name;
-        $data['description'] = $request->cat_desc;
-        $data['status'] = $request->status;
+        // validate the form input
+        $request->validate([
+            'cat_name' => 'required|string|max:150',
+            'cat_desc' => 'required|string',
+        ], [
+            'cat_name.required' => 'Opp! Category name is required',
+            'cat_name.max' => 'Opp! Category name is too long',
+            'cat_desc.required' => 'Opp! Description is required',
 
-        DB::table('categories')->insert($data);
-        // i will need a mesage to confirm this
-        return Redirect::to('/managecat');
+            'status.required' => 'Opps! Category Status is required',
+        ]);
+
+        $category = new Category;
+        
+        // assign input values to the object
+        $category->name = $request->cat_name;
+        $category->description = $request->cat_desc;
+
+        // inserting the object into the DB
+        $category->save();
+        
+        return redirect('/manage-category');
     }
 
     /**
@@ -66,8 +80,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cats = DB::table('categories')->where('id',$id)->first();
-        return view('admin.editcat', compact('cats'));
+        $category = Category::findOrFail($id);
+        return view('admin.editcat', compact('category'));
     }
 
     /**
@@ -97,7 +111,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->delete($id);
-        return Redirect::to('/managecat');
+        $category = Category::findOrFail($id);
+        $category->delete();
+        
+        return redirect()->route('managecat');
     }
 }
