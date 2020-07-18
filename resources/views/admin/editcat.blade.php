@@ -10,7 +10,7 @@
 
         <div class="col-xl-12 col-md-12" >
             @if($category)
-                <form action="{{url('/updatecat',$cats->id)}}" method="POST" >
+                <form action="{{url('/updatecat',$category->id)}}" method="POST" >
                     
                     {{ csrf_field() }}
                     <!-- this div is for javascript validation -->
@@ -24,14 +24,14 @@
                                     id="title" 
                                     type="text" 
                                     name="cat_name" 
-                                    value="{{ $cats->name }}"
+                                    value="{{ $category->name }}"
                                     required/>                    
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group col-md-6">
                                 <label class="large mb-1" for="title">Category Descrtiption</label>
-                                <textarea name="cat_desc" id="cat_desc" class="form-control" required>{{$cats->description}}</textarea>                   
+                                <textarea name="cat_desc" id="cat_desc" class="form-control" required>{{$category->description}}</textarea>                   
                             </div>
                         </div>            
                     </div>
