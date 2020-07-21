@@ -93,14 +93,30 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = array();
-        $data['name'] = $request->cat_name;
-        $data['description'] = $request->cat_desc;
-        $data['status'] = $request->status;
+        // validate the form input
+        $request->validate([
+            'cat_name' => 'required|string|max:150',
+            'cat_desc' => 'required|string',
+        ], [
+            'cat_name.required' => 'Opp! Category name is required',
+            'cat_name.max' => 'Opp! Category name is too long',
+            'cat_desc.required' => 'Opp! Description is required',
 
-        DB::table('categories')->where('id',$id)->update($data);
-        // i will need a mesage to confirm this
-        return Redirect::to('/managecat');
+            'status.required' => 'Opps! Category Status is required',
+        ]);
+
+        //$category = new Category;
+
+        //finding the category with the mentioned id
+        $category = Category::find($id);
+        
+        // assign input values to the object
+        $category->name = $request->cat_name;
+        $category->description = $request->cat_desc;
+
+        // inserting the object into the DB
+        $category->save();
+        return redirect('/manage-category');
     }
 
     /**

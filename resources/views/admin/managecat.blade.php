@@ -24,9 +24,9 @@
                     Descritpion
                 </th>       
 
-            <th>
-                Status
-            </th>
+                <th>
+                    Status
+                </th>
             
                 <th>
                     Added On
@@ -44,14 +44,14 @@
 
                     <tr class="table_row">
                         <td>
-                            {{$loop->iteration}}
+                            {{ $loop->iteration }}
                         </td>
                         <td>
-                            {{$cat->name}}
+                            {{ $cat->name }}
                         </td>
 
                         <td>
-                            {{$cat->description}}
+                            {{ $cat->description }}
                         </td>       
                         <td>
                             @if($cat->count() >= 1)
@@ -61,7 +61,7 @@
                             @endif
                         </td>
                         <td>
-                            {{$cat->created_at->diffForHumans()}}
+                            {{ $cat->created_at->diffForHumans() }}
                         </td>  
                         
                         <td>

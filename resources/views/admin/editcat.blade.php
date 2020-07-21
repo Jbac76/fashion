@@ -1,7 +1,7 @@
 @extends('admin.includes.layout')
 
 @section('content')
-
+ 
     <h2 class="mt-4">Edit Category </h2>
     <hr>
 
@@ -14,10 +14,19 @@
                     
                     {{ csrf_field() }}
                     <!-- this div is for javascript validation -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <!-- //this div is for javascript validation -->
                     <div class="form-row">
-                        <div class="col-md-12">
-                            <div class="form-group col-md-6">
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label class="large mb-1" for="title">Category Name</label>
                                 <input 
                                     class="form-control" 
@@ -28,10 +37,12 @@
                                     required/>                    
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label class="large mb-1" for="title">Category Descrtiption</label>
-                                <textarea name="cat_desc" id="cat_desc" class="form-control" required>{{$category->description}}</textarea>                   
+                                <textarea name="cat_desc" id="cat_desc" class="form-control" required>{{ $category->description }}</textarea>                   
                             </div>
                         </div>            
                     </div>
