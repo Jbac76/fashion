@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('products')
-	<h3>Our Products </h3>
+	<h3>Our Products</h3>
 				<div class="row-fluid">
 				  <ul class="thumbnails">
 					<li class="span4">

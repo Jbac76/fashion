@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Fashion shopping cart</title>
+    <title>Twitter Bootstrap shopping cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Bootstrap styles -->
-    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet"/>
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- Customize styles -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
     <!-- font awesome styles -->
-	<link href="{{ asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 		<!--[if IE 7]>
 			<link href="css/font-awesome-ie7.min.css" rel="stylesheet">
 		<![endif]-->
@@ -21,7 +21,7 @@
 		<![endif]-->
 
 	<!-- Favicons -->
-    <link rel="shortcut icon" href="{{ asset('assets/ico/favicon.ico') }}">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
   </head>
 <body>
 <!-- 
@@ -37,12 +37,11 @@
 					<a href="#"><span class="icon-youtube"></span></a>
 					<a href="#"><span class="icon-tumblr"></span></a>
 				</div>
-				@if (!Auth::guest())
 				<a href="index.html"> <span class="icon-home"></span> Home</a> 
-				<a href="#"><span class="icon-user"></span> My Account</a> 			
-				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
-				@endif
+				<a href="#"><span class="icon-user"></span> My Account</a> 
+				<a href="register.html"><span class="icon-edit"></span> Free Register </a> 
 				<a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
+				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
 			</div>
 		</div>
 	</div>
@@ -63,13 +62,19 @@ Lower Header Section
 	</h1>
 	</div>
 	<div class="span4">
-	
+	<div class="offerNoteWrapper">
+	<h1 class="dotmark">
+	<i class="icon-cut"></i>
+	Twitter Bootstrap shopping cart HTML template is available @ $14
+	</h1>
+	</div>
 	</div>
 	<div class="span4 alignR">
-	<br/><br/>
+	<p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
 	<span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
 	<span class="btn btn-warning btn-mini">$</span>
-	
+	<span class="btn btn-mini">&pound;</span>
+	<span class="btn btn-mini">&euro;</span>
 	</div>
 </div>
 </header>
@@ -87,21 +92,17 @@ Navigation Bar Section
 		  </a>
 		  <div class="nav-collapse">
 			<ul class="nav">
-			  <li class="active"><a href="">Home</a></li>
-			  <li class=""><a href="">Categories</a></li>
-			  <li class=""><a href="">Link1</a></li>
-			  <li class=""><a href="">Link2</a></li>
-			  
+			  <li class="active"><a href="index.html">Home	</a></li>
+			  <li class=""><a href="list-view.html">List View</a></li>
+			  <li class=""><a href="grid-view.html">Grid View</a></li>
+			  <li class=""><a href="three-col.html">Three Column</a></li>
+			  <li class=""><a href="four-col.html">Four Column</a></li>
+			  <li class=""><a href="general.html">General Content</a></li>
 			</ul>
-			<form action="#" class="navbar-search ml-auto mr-0 mr-md-3 my-2 my-md-0">
+			<form action="#" class="navbar-search pull-left">
 			  <input type="text" placeholder="Search" class="search-query span2">
 			</form>
-
 			<ul class="nav pull-right">
-				<li class="">
-					<a href="{{ url('/login') }}"><span class="icon-lock"></span> Login</a>
-				</li>
-				<!-- 
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
 				<div class="dropdown-menu">
@@ -121,7 +122,6 @@ Navigation Bar Section
 				</form>
 				</div>
 			</li>
-				-->
 			</ul>
 		  </div>
 		</div>
@@ -194,14 +194,60 @@ Body Section
 
 	</div>
 	<div class="span9">
-<!--
-New Products
--->
-		<div class="well well-small">
-			@yield('products')
+    <ul class="breadcrumb">
+		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li class="active">Login</li>
+    </ul>
+	<h3> Login</h3>	
+	<hr class="soft"/>
+	
+	<div class="row">
+		<div class="span4">
+			<div class="well">
+			<h5>CREATE YOUR ACCOUNT</h5><br/>
+			Enter your e-mail address to create an account.<br/><br/><br/>
+			<form>
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">E-mail address</label>
+				<div class="controls">
+				  <input class="span3"  type="text" placeholder="Email">
+				</div>
+			  </div>
+			  <div class="controls">
+			  <button type="submit" class="btn block">Create Your Account</button>
+			  </div>
+			</form>
 		</div>
-	</div>
-	</div>
+		</div>
+		<div class="span1"> &nbsp;</div>
+		<div class="span4">
+			<div class="well">
+			<h5>ALREADY REGISTERED ?</h5>
+			<form>
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+				  <input class="span3"  type="text" placeholder="Email">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
+				<div class="controls">
+				  <input type="password" class="span3" placeholder="Password">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="defaultBtn">Sign in</button> <a href="#">Forget password?</a>
+				</div>
+			  </div>
+			</form>
+		</div>
+		</div>
+	</div>	
+	
+</div>
+</div>
 <!-- 
 Clients 
 -->
@@ -285,10 +331,10 @@ accompanied by English versions from the 1914 translation by H. Rackham.
 </div>
 <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('assets/js/jquery.js') }}"></script>
-	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('assets/js/jquery.easing-1.3.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.scrollTo-1.4.3.1-min.js') }}"></script>
-    <script src="{{ asset('assets/js/shop.js') }}"></script>
+    <script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="assets/js/shop.js"></script>
   </body>
 </html>

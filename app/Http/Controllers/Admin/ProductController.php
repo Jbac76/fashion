@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use Image;
+use Intervention\Image\Exception\NotReadableException;
 
 class ProductController extends Controller
 {
@@ -71,18 +73,23 @@ class ProductController extends Controller
         $product->quantity = $request->product_quantity;
         $product->price = $request->product_price;
         $product->category_id = $request->product_category;
-       
-        if($file = $request->hasFile('product_image')) {
-            
-            $file = $request->file('product_image') ;
-            
-            $fileName = $file->getClientOriginalName();
-            $destinationPath = public_path().'/images/products/';
-            $fileName = str_replace(' ', '_', $fileName);
-            $file->move($destinationPath,$fileName);
-            $product->photo = $fileName ;
-        }
 
+        if ($files = $request->file('product_image')) {
+     
+            // for save original image
+            $ImageUpload = Image::make($files);
+            $originalPath = public_path().'/images/products/';
+            $ImageUpload->save($originalPath.$files->getClientOriginalName());
+             
+            // for save thumnail image
+            $thumbnailPath = public_path().'/thumbnail/';
+            $ImageUpload->resize(250,125);
+            $ImageUpload = $ImageUpload->save($thumbnailPath.$files->getClientOriginalName());
+         
+            $product->photo  = $files->getClientOriginalName();
+          
+        }
+        
         // inserting the object into the DB
         $product->save();
         
