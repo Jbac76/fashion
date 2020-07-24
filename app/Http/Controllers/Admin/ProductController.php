@@ -89,7 +89,7 @@ class ProductController extends Controller
             $product->photo  = $files->getClientOriginalName();
           
         }
-        
+
         // inserting the object into the DB
         $product->save();
         
@@ -166,15 +166,20 @@ class ProductController extends Controller
         $product->category_id = $request->product_category;
         
         if ($product->photo) {
-            if($file = $request->hasFile('product_image')) {
-            
-                $file = $request->file('product_image') ;
-                
-                $fileName = $file->getClientOriginalName();
-                $destinationPath = public_path().'/images/products/';
-                $fileName = str_replace(' ', '_', $fileName);
-                $file->move($destinationPath,$fileName);
-                $product->photo = $fileName ;
+            if ($files = $request->file('product_image')) {
+     
+                // for save original image
+                $ImageUpload = Image::make($files);
+                $originalPath = public_path().'/images/products/';
+                $ImageUpload->save($originalPath.$files->getClientOriginalName());
+                 
+                // for save thumnail image
+                $thumbnailPath = public_path().'/thumbnail/';
+                $ImageUpload->resize(250,125);
+                $ImageUpload = $ImageUpload->save($thumbnailPath.$files->getClientOriginalName());
+             
+                $product->photo  = $files->getClientOriginalName();
+              
             }
         }
 
@@ -191,6 +196,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products = Product::findOrFail($id);
+        if(file_exists(public_path().'/images/products/'.$products->photo)){
+          unlink(public_path().'/images/products/'.$products->photo);
+          unlink(public_path().'/thumbnail/'.$products->photo);
+        }
+        $products->delete();
+        
+        return redirect()->route('manageproduct');
     }
 }
