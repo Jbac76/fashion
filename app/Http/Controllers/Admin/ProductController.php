@@ -83,7 +83,7 @@ class ProductController extends Controller
              
             // for save thumnail image
             $thumbnailPath = public_path().'/thumbnail/';
-            $ImageUpload->resize(250,125);
+            $ImageUpload->resize(276,357);
             $ImageUpload = $ImageUpload->save($thumbnailPath.$files->getClientOriginalName());
          
             $product->photo  = $files->getClientOriginalName();

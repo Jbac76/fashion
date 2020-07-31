@@ -11,8 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {      
-    	//this objectis just to fetch category in the product form
+    	//this objectis just to fetch category and products in the product form
         $categories = Category::all(); 
-        return view('welcome', compact('categories'));
+        $products = Product::all(); 
+        return view('welcome', compact(['categories','products']));
     }
 }

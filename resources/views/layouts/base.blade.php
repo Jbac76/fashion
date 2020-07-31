@@ -88,9 +88,10 @@ Navigation Bar Section
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="active"><a href="">Home</a></li>
+						<li class=""><a href="">New Arrival</a></li>
 						<li class=""><a href="">Categories</a></li>
-						<li class=""><a href="">Link1</a></li>
-						<li class=""><a href="">Link2</a></li>
+						<li class=""><a href="">Contact Us</a></li>
+						<li class=""><a href="">About Us</a></li>
 					</ul>
 					<form action="#" class="navbar-search ml-auto mr-0 mr-md-3 my-2 my-md-0">
 						<input type="text" placeholder="Search" class="search-query span2">
